@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+body {
+  font-family: Lato, sans-serif;
+}
+
+footer {
+  width:100vw;
+  position:fixed;
+  bottom:0px
+}
+footer div {
+  background-color:#4478e3;
+  margin: -5px 0px 0px 0px;
+  padding:0px;
+  color: #fff;
+  text-align:center;
+}
+svg {
+  width:100%;
+}
+.arrow {
+  stroke-width: .3px;
+  stroke:yellow;
+}
+.topball {
+  animation: ball 1.5s ease-in-out;
+  animation-iteration-count:infinite;
+  animation-direction: alternate;
+  animation-delay: 0.3s;
+  cursor:pointer;
+}
+
+.wave {
+  animation: wave 3s linear;
+  animation-iteration-count:infinite;
+  fill: #4478e3;
+}
+.drop {
+  fill: transparent;
+  animation: drop 5s ease infinite normal;
+  stroke: #4478e3;
+  stroke-width:0.5;
+  opacity:.6;
+  transform: translateY(80%);
+}
+.drop1 {
+  transform-origin: 20px 3px;
+}
+.drop2 {
+  animation-delay: 3s;
+  animation-duration:3s;
+  transform-origin: 25px 3px;
+}
+.drop3 {
+  animation-delay: -2s;
+  animation-duration:3.4s;
+  transform-origin: 16px 3px;
+}
+.gooeff {
+  	filter: url(#goo);
+}
+#wave2 {
+  animation-duration:5s;
+  animation-direction: reverse;
+  opacity: .6
+}
+#wave3 {
+  animation-duration: 7s;
+  opacity:.3;
+}
+@keyframes drop {
+  0% {
+    transform: translateY(80%);
+    opacity:.6;
+  }
+  80% {
+    transform: translateY(80%);
+    opacity:.6;
+  }
+  90% {
+    transform: translateY(10%) ;
+    opacity:.6;
+  }
+  100% {
+    transform: translateY(0%) scale(1.5);
+    stroke-width:0.2;
+    opacity:0;
+  }
+}
+@keyframes wave {
+  to {transform: translateX(-100%);}
+}
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:#0b1725;
+
+}
+body h1{
+    color: #ffffff;
+    font-size: 60px;
+}
+body h4{
+    background-color:#7fff3a;
+    color: #000000;
+    padding: 7px;
+    font-size: 24px;
+    height:40px;
+}
+body h2{
+    color: #0392ff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    background-color: #2b9e05;
+  }
+
+  button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid;
+    border-radius: 12px;
+  }
+
+  .button1:hover {
+    background-color: #0392ff;
+    color: white;
+  }
+
+
+    </style>
+</head>
+<body>
+        <footer>
+        <svg viewBox="0 0 120 28">
+         <defs> 
+           <mask id="xxx">
+             <circle cx="7" cy="12" r="40" fill="#fff" />
+           </mask>
+           
+           <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+              <feColorMatrix in="blur" mode="matrix" values="
+                   1 0 0 0 0  
+                   0 1 0 0 0  
+                   0 0 1 0 0  
+                   0 0 0 13 -9" result="goo" />
+              <feBlend in="SourceGraphic" in2="goo" />
+              </filter>
+             <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
+          </defs> 
+        
+           <use id="wave3" class="wave" xlink:href="#wave" x="0" y="-2" ></use> 
+           <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
+         
+          
+          
+          <g class="gooeff">
+          <circle class="drop drop1" cx="20" cy="2" r="1.8"  />
+          <circle class="drop drop2" cx="25" cy="2.5" r="1.5"  />
+          <circle class="drop drop3" cx="16" cy="2.8" r="1.2"  />
+            <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
+          
+            <!-- g mask="url(#xxx)">
+            <path   id="wave1"  class="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
+            </g>
+          </g -->
+        
+        </svg>
+   <div class="footer-bottom">
+    <p>Copyright &copy; 2023 Read My Book | Designed by <span style="font-weight:bold">P.Premnath and S.Vikram</span></p>
+</div>
+        </footer>
+        <center>
+<h1>Read My Book</h1>
+    <h2>Make Your Own Audio Book</h2>
+          <img src="{{url_for('static',filename='purplen.png')}}" width="300px" height="300px" alt="purple logo">
+          <h2 style="color:white;">~ Select Your Category ~</h2>
+          <form action="/imgtxt" method="post">
+            <button class="button1">Image to Voice</button>
+              </form>
+    </center>
+    
+</body>
+</html>
